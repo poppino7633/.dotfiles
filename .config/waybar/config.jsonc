@@ -1,0 +1,158 @@
+{
+  "include": ["modules/cava.jsonc"],
+  "layer": "top",
+  "position": "top",
+  "margin-left": 10,
+  "margin-right": 10,
+  "margin-top": 5,
+  "reload_style_on_change": true,
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/updates", "cpu","memory", "group/music", "pulseaudio/slider", "pulseaudio", "custom/weather", "tray", "custom/notification"],
+  "pulseaudio/slider" : {
+    "expand": false
+  },
+  "group/music": {
+    "modules": ["cava", "custom/music"]
+  },
+  "custom/notification": {
+    "tooltip-format": "Left: Notifications\nRight: Do not disturb",
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󰂚 ",          
+      "none": "󰂜 ",                 
+      "dnd-notification": "󰂚 ",    
+      "dnd-none": "󰤄 ",         
+      "inhibited-notification": "󰂞 ", 
+      "inhibited-none": "󰂜 ",        
+      "dnd-inhibited-notification": "󰂞 ", 
+      "dnd-inhibited-none": "󰤄 "     
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "cava": {
+        "framerate": 240,
+        "autosens": 1,
+        "bars": 14,
+        "expand": true,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 18000,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": false,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.1,
+        "input_delay": 2,
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "on-click": "playerctl play-pause",
+        "exec": "playerctl metadata --format='{{ title }}'"
+    },
+  "pulseaudio": {
+      // "scroll-step": 1, // %, can be a float
+      "format": "{icon} {volume}%",
+      "format-muted": " ",
+      "format-icons": {
+          "default": [" ", " ", "  "]
+      },
+      "on-click": "pavucontrol"
+  },
+  "tray": {
+      "icon-size": 21,
+      "spacing": 10
+  }, 
+
+  "custom/weather": {
+    "format": "{}°",
+    "interval": 900,
+    "exec": "wttrbar --nerd",
+    "return-type": "json"
+  },
+  "hyprland/window": {
+    "format": "{class} — {title}",
+    "icon": false,
+    "rewrite": {
+      " — ": "",
+      "(.*) — Mozilla Firefox": "$1",
+      "firefox — (.*)": "   $1",
+      "kitty — (.*)": "   $1",
+      "(.*) — nvim(.*)": "  $2"
+    }
+  },
+  "hyprland/workspaces": {
+    "format": "<b>{name}</b> {windows}",
+    "workspace-taskbar":  {
+      "enable": false,
+      "format": "{icon}",
+      "icon-theme": ["breeze-dark"]
+    },
+    "show-special":true,
+    "window-rewrite-default": "",
+    "window-rewrite": {
+      "class<firefox>": " ",
+      "class<kitty>": " ",
+      "title<nvim.*>": " ",
+      "class<.*.exe*>": "",
+      "class<net.lutris.Lutris>": "",
+      "class<steam>": " ",
+      "class<REAPER>": " "
+    },
+    "format-icons": {
+      "1": "",
+      "2": " ",
+      "3": " ",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 3 
+    }
+  },
+
+
+  "custom/music": {
+      "format": "  {}",
+      "escape": true,
+      "interval": 1,
+      "tooltip": false,
+      "exec": "playerctl metadata --format='{{ title }}'",
+      "on-click": "playerctl play-pause",
+      "max-length": 30
+  },
+  "custom/updates": {
+    "format": "{} {icon}",
+    "return-type": "json",
+    "format-icons": {
+        "has-updates": "󰇚",
+        "updated": ""
+    },
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300 --no-zero-output"
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "   {usage}%",
+    "max-length": 10,
+    "on-click": "kitty btop"
+  },
+  "memory": {
+    "interval": 1,
+    "format": " {used:0.1f}G",
+    "on-click": "kitty btop"
+  },
+  "clock": {
+      "format-alt": "{:%d/%m}",
+      "format": "{:%H:%M}",
+      "tooltip": true,
+      "tooltip-format": "<big>{:%d %b %Y}</big>\n<tt><small>{calendar}</small></tt>"
+  }
+
+
+}
+

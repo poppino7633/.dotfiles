@@ -1,0 +1,133 @@
+@import "frappe.css";
+
+* {
+  /* reference the color by using @color-name */
+  color: @text;
+  min-height: 0;
+  font-family: "Noto Sans Emoji";
+}
+
+window#waybar {
+  /* you can also GTK3 CSS functions! */
+  background-color: alpha(@base, 0.2);
+  margin: 0;
+  padding: 0px;
+  border-radius: 1rem;
+}
+
+tooltip {
+   border-radius: 10px;
+   background-color: alpha(@mantle, 0.7);
+}
+
+
+tooltip * {
+  color: @text;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7);
+}
+
+
+#window {
+  font-size: 16px;
+  margin-left: 2rem;
+  margin-right: 1rem;
+}
+
+#clock {
+  color: @blue;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 1rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+#cava {
+  margin-right: 1rem;
+}
+
+#cpu {
+  margin-right: 1rem;
+}
+#memory {
+  margin-right: 1rem;
+}
+  
+#custom-music {
+  padding: 0px;
+}
+
+#group-music {
+}
+
+#pulseaudio {
+  color: @blue;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-right: 1rem;
+}
+
+#pulseaudio-slider {
+    min-width: 100px;
+    color: #ffffff;
+} 
+
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough {
+    min-height: 11px;
+    min-width: 10px;
+    border-radius: 5px;
+    border: none;
+    padding: 1px;
+    background-color: alpha(#000000, 0.1);
+}
+#pulseaudio-slider highlight {
+    border-radius: 5px;
+    border: none;
+    background-color: @text;
+}
+
+#workspaces {
+  border-radius: 1rem;
+  background-color: alpha(@base, 0.0);
+}
+
+#workspaces button {
+  color: @lavender;
+  background-color: @black;
+  padding-right: 10px;
+}
+
+#workspaces button.active {
+  background-color: alpha(@crust, 0.2);
+  border-radius: 1rem;
+  color: @blue;
+}
+#workspaces button.active * {
+  color: @blue;
+}
+
+
+#tray {
+  color: @text;
+  margin-right: 1rem;
+}
+
+#custom-updates {
+  color: @blue;
+  border-radius: 10rem;
+}
+
+#custom-notification {
+  font-size: 18px;
+  margin-right: 0.5rem;
+}
+
+#custom-weather {
+  margin-right: 1rem;
+}

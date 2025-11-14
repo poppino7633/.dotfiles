@@ -1,0 +1,12 @@
+show=dmenu
+width=250
+height=200
+location=top
+yoffset=5
+always_parse_args=true
+show_all=false
+insensitive=true
+prompt=Select config
+columns=1
+allow_images = true
+order=default
