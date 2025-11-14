@@ -11,22 +11,22 @@ choice=$(echo -e $options | wofi --sort-order=alphabetical --conf ~/.config/wofi
 # Handle selection
 case "$choice" in
     "Hyprland")
-        kitty -d ~/.config/hypr/ -e nvim hyprland.conf &
+        kitty -d ~/.dotfiles/.config/hypr/ -e nvim &
         ;;
     "Waybar")
-        kitty -d ~/.config/waybar/ -e nvim config.jsonc &
+        kitty -d ~/.dotfiles/.config/waybar/ -e nvim &
         ;;
     "Neovim")
-        kitty -d ~/.config/nvim/ -e nvim init.lua &
+        kitty -d ~/.dotfiles/.config/nvim/ -e nvim &
         ;;
     "Wofi")
-        kitty -d ~/.config/wofi/ -e nvim config/config &
+        kitty -d ~/.dotfiles/.config/wofi/ -e nvim &
         ;;
     "Kitty")
-        kitty -d ~/.config/kitty/ -e nvim kitty.conf &
+        kitty -d ~/.dotfiles/.config/kitty/ -e nvim &
         ;;
     "SwayNC")
-        kitty -d ~/.config/swaync/ -e nvim config.json &
+        kitty -d ~/.dotfiles/.config/swaync/ -e nvim &
         ;;
 
 esac
