@@ -3,10 +3,16 @@ require("remap")
 require("config.lazy")
 require("config.lsp")
 
-local loadNetrw = vim.api.nvim_create_augroup("loading_netrwPlugin", {clear = true})
+local mygroup = vim.api.nvim_create_augroup("loading_netrwPlugin", {clear = true})
 vim.api.nvim_create_autocmd({"VimEnter"}, {
     pattern = {"*"},
-    command = ":silent! Explore",
-    group = loadNetrw
+    callback = function()
+        local current_file = vim.fn.expand("%")
+        if current_file == "" then
+            vim.cmd(":silent! Explore")
+        else
+            vim.cmd(":silent! edit " .. current_file)
+        end
+    end,
+    group = mygroup
 })
-
