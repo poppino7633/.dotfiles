@@ -1,5 +1,4 @@
 {
-  "include": ["modules/cava.jsonc"],
   "layer": "top",
   "position": "top",
   "margin-left": 10,
