@@ -81,9 +81,10 @@
     "rewrite": {
       " — ": "",
       "(.*) — Mozilla Firefox": "$1",
-      "firefox — (.*)": "   $1",
-      "kitty — (.*)": "   $1",
-      "(.*) — nvim(.*)": "  $2"
+      "firefox — (.*)": "  $1",
+      "kitty — (.*)": "  $1",
+      "(.*) — nvim(.*)": "  $2",
+      "org.kde.dolphin — (.*) — Dolphin": "  $1"
     }
   },
   "hyprland/workspaces": {
@@ -102,7 +103,8 @@
       "class<.*.exe*>": "",
       "class<net.lutris.Lutris>": "",
       "class<steam>": " ",
-      "class<REAPER>": " "
+      "class<REAPER>": " ",
+      "class<org.kde.dolphin>": " "
     },
     "format-icons": {
       "1": "",

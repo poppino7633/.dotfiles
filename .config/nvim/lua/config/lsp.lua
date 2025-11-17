@@ -40,6 +40,8 @@ vim.lsp.config.clangd["on_attach"] = on_attach
 
 vim.lsp.config.texlab["on_attach"] = on_attach
 
+vim.lsp.config.rust_analyzer["on_attach"] = on_attach
+
 vim.lsp.config["lua_ls"] = { 
   settings = {
     Lua = {

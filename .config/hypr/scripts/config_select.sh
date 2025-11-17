@@ -3,7 +3,7 @@ if pgrep -x "wofi" > /dev/null; then
     exit 0
 fi
 # Options
-options="Hyprland\nWaybar\nNeovim\nWofi\nKitty\nSwayNC"
+options="Hyprland\nWaybar\nNeovim\nWofi\nKitty\nSwayNC\nTmux"
 
 # Show wofi menu and get selection
 choice=$(echo -e $options | wofi --sort-order=alphabetical --conf ~/.config/wofi/config/prompt --style ~/.config/wofi/src/frappe/prompt.css)
@@ -11,22 +11,25 @@ choice=$(echo -e $options | wofi --sort-order=alphabetical --conf ~/.config/wofi
 # Handle selection
 case "$choice" in
     "Hyprland")
-        kitty -d ~/.dotfiles/.config/hypr/ -e nvim &
+        kitty -d ~/.config/hypr/ -e nvim &
         ;;
     "Waybar")
-        kitty -d ~/.dotfiles/.config/waybar/ -e nvim &
+        kitty -d ~/.config/waybar/ -e nvim &
         ;;
     "Neovim")
-        kitty -d ~/.dotfiles/.config/nvim/ -e nvim &
+        kitty -d ~/.config/nvim/ -e nvim &
         ;;
     "Wofi")
-        kitty -d ~/.dotfiles/.config/wofi/ -e nvim &
+        kitty -d ~/.config/wofi/ -e nvim &
         ;;
     "Kitty")
-        kitty -d ~/.dotfiles/.config/kitty/ -e nvim &
+        kitty -d ~/.config/kitty/ -e nvim &
         ;;
     "SwayNC")
-        kitty -d ~/.dotfiles/.config/swaync/ -e nvim &
+        kitty -d ~/.config/swaync/ -e nvim &
+        ;;
+    "Tmux")
+        kitty -d ~ -e nvim .tmux.conf &
         ;;
 
 esac

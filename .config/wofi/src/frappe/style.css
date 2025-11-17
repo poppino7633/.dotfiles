@@ -61,8 +61,8 @@ window {
   margin: 0px;
   padding: 10px;
   border: 0.16em solid @blue;
-  border-radius: 0.1em;
-  background-color: @base;
+  border-radius: 1em;
+  background-color: alpha(@base, 0.4);
 }
 
 /* Slide In */
@@ -76,12 +76,14 @@ window {
   }
 }
 
+
 /* Inner Box */
 #inner-box {
   margin: 5px;
   padding: 10px;
   border: none;
-  background-color: @base;
+  background-color: alpha(@base, 0.4);
+  border-radius: 1em;
 }
 
 /* Fade In */
@@ -100,7 +102,7 @@ window {
   margin: 5px;
   padding: 10px;
   border: none;
-  background-color: @base;
+  background-color: alpha(@base, 0.0);
 }
 
 /* Scroll */
@@ -108,7 +110,7 @@ window {
   margin: 0px;
   padding: 10px;
   border: none;
-  background-color: @base;
+  background-color: alpha(@base, 0.0);
 }
 
 /* Input */
@@ -117,9 +119,9 @@ window {
   margin: 5px 20px;
   padding: 10px;
   border: none;
-  border-radius: 0.1em;
+  border-radius: 2em;
   color: @text;
-  background-color: @base;
+  background-color: alpha(@base, 0.4);
   box-shadow: none;
 
 }
@@ -142,7 +144,7 @@ window {
 }
 
 #entry {
-  background-color: @base;
+  background-color: alpha(@base, 0.0);
 }
 
 #entry arrow {
