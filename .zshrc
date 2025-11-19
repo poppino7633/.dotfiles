@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 if [ "$TMUX" = "" ]; then tmux attach || tmux new; fi
+tmux source ~/.tmux.conf
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"

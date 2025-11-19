@@ -134,7 +134,8 @@
         "updated": ""
     },
     "exec-if": "which waybar-module-pacman-updates",
-    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300 --no-zero-output"
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300 --no-zero-output",
+    "on-click": "kitty yay -Syu"
   },
   "cpu": {
     "interval": 1,
