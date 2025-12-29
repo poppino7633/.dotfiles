@@ -122,7 +122,7 @@ ForegroundPositive=166, 209, 137
 ForegroundVisited=202, 158, 230
 
 [General]
-ColorSchemeHash=9f63c7711a13123582e720791ea0f8c0172977d2
+ColorSchemeHash=d9b3f338b5f1fd4e3389cb52a430776ddde2db0c
 TerminalApplication=kitty
 
 [Icons]

@@ -14,6 +14,9 @@
   "group/music": {
     "modules": ["cava", "custom/music"]
   },
+  "group/system": {
+    "modules": ["cpu", "memory"]
+  },
   "custom/notification": {
     "tooltip-format": "Left: Notifications\nRight: Do not disturb",
     "format": "{icon}",
@@ -60,7 +63,7 @@
       "format-icons": {
           "default": [" ", " ", "  "]
       },
-      "on-click": "pavucontrol"
+      "on-click": "kitty --class mixer pulsemixer"
   },
   "tray": {
       "icon-size": 21,
@@ -102,7 +105,9 @@
       "class<net.lutris.Lutris>": "",
       "class<steam>": " ",
       "class<REAPER>": " ",
-      "class<org.kde.dolphin>": " "
+      "class<org.kde.dolphin>": " ",
+      "class<mixer>": " ",
+      "class<btop>": "󰄪 "
     },
     "format-icons": {
       "1": "",
@@ -130,22 +135,22 @@
     "return-type": "json",
     "format-icons": {
         "has-updates": "󰇚",
-        "updated": ""
+        "updated": "󰗠 "
     },
     "exec-if": "which waybar-module-pacman-updates",
     "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300 --no-zero-output",
-    "on-click": "kitty yay -Syu"
+    "on-click": "kitty --class yay yay -Syu"
   },
   "cpu": {
     "interval": 1,
     "format": "   {usage}%",
     "max-length": 10,
-    "on-click": "kitty btop"
+    "on-click": "kitty --class btop btop"
   },
   "memory": {
     "interval": 1,
     "format": " {used:0.1f}G",
-    "on-click": "kitty btop"
+    "on-click": "kitty --class btop btop"
   },
   "clock": {
       "format-alt": "{:%d/%m}",
