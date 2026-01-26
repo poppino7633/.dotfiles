@@ -74,7 +74,8 @@
     "format": "{}°",
     "interval": 900,
     "exec": "wttrbar --nerd",
-    "return-type": "json"
+    "return-type": "json",
+    "on-click": "kweather --class weather"
   },
   "hyprland/window": {
     "format": "{class} — {title}",
@@ -144,7 +145,8 @@
   "cpu": {
     "interval": 1,
     "format": "   {usage}%",
-    "max-length": 10,
+    "max-length": 7,
+    "min-length": 7,
     "on-click": "kitty --class btop btop"
   },
   "memory": {
