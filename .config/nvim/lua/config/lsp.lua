@@ -14,13 +14,17 @@ local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
+  if vim.bo[bufnr].filetype == "slang" then
+    client.server_capabilities.semanticTokensProvider = nil
+  end
+
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   vim.keymap.set('n', '<leader>wl', function()
@@ -30,19 +34,34 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set("n", "<leader>f", function()
+  vim.keymap.set('n', "<leader>f", function()
     vim.lsp.buf.format({ async = true })
   end, bufopts)
 end
 
 
-vim.lsp.config.clangd["on_attach"] = on_attach
 
-vim.lsp.config.texlab["on_attach"] = on_attach
+vim.lsp.config('*', {
+  on_attach = on_attach
+})
 
-vim.lsp.config.rust_analyzer["on_attach"] = on_attach
+vim.lsp.config('clangd', {
+  on_attach = on_attach
+})
 
-vim.lsp.config["lua_ls"] = { 
+vim.lsp.config('cmake', {
+  cmd = { vim.fn.stdpath('data') .. '/mason/bin/cmake-language-server' },
+  filetypes = { 'cmake' },
+  root_markers = { 'CMakeLists.txt', 'build/' },
+  init_options = {
+    buildDirectory = 'build',
+  },
+})
+
+vim.lsp.enable('cmake')
+
+vim.lsp.config["lua_ls"] = {
+  on_attach = on_attach,
   settings = {
     Lua = {
       runtime = {
@@ -57,4 +76,3 @@ vim.lsp.config["lua_ls"] = {
     },
   },
 }
-

@@ -1,24 +1,18 @@
 return {
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        config = function ()
-        local configs = require("nvim-treesitter.configs")
-
-        configs.setup({
-            ensure_installed = {"vimdoc", "cpp", "lua" },
-            sync_install = false,
-
-            highlight = {
-
-                enable = true,
-                additional_vim_regex_highlighting = true,
-            },
-            indent = { enable = true },
-        })
+  {
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    branch = "main",
+    build = ":TSUpdate",
+    config = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+          local lang = vim.treesitter.language.get_lang(args.match)
+          if lang and vim.treesitter.language.add(lang) then
+            vim.treesitter.start()
+          end
         end,
-    },
-    {
-        "nvim-treesitter/playground"
-    }
+      })
+    end,
+  },
 }

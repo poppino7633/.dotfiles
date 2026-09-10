@@ -3,6 +3,8 @@ require("remap")
 require("config.lazy")
 require("config.lsp")
 
+vim.env.PATH = vim.fn.expand("~/.pyenv/shims") .. ":" .. vim.env.PATH
+
 local mygroup = vim.api.nvim_create_augroup("loading_netrwPlugin", {clear = true})
 vim.api.nvim_create_autocmd({"VimEnter"}, {
     pattern = {"*"},

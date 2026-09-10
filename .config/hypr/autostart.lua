@@ -1,0 +1,8 @@
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("kdeconnectd")
+  hl.exec_cmd("noctalia")
+  hl.exec_cmd("systemctl --user start hyprpolkitagent")
+  hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme \"prefer-light\"")
+  hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme \"adw-gtk3\"")
+  hl.exec_cmd("import-gsettings")
+end)

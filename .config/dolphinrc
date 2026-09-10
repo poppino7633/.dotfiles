@@ -1,5 +1,8 @@
 MenuBar=Disabled
 
+[DetailsMode]
+PreviewSize=32
+
 [General]
 Version=202
 ViewPropsTimestamp=2025,11,3,18,23,37.279
@@ -10,6 +13,3 @@ Places Icons Static Size=22
 
 [MainWindow]
 MenuBar=Disabled
-
-[UiSettings]
-ColorScheme=CatppuccinFrappeBlue

@@ -4,7 +4,8 @@
   /* reference the color by using @color-name */
   color: @text;
   min-height: 0;
-  font-family: "Noto Sans Emoji";
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 0.9rem;
 }
 
 window#waybar {

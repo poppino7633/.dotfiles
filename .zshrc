@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-if [ "$TMUX" = "" ]; then tmux attach || tmux new; fi
-tmux source ~/.tmux.conf
+#if [ "$TMUX" = "" ]; then tmux attach || tmux new; fi
+#tmux source ~/.tmux.conf
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -117,3 +117,13 @@ alias vim='nvim'
 [[ -f /home/poppino/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/poppino/.config/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+
+# Created by `pipx` on 2026-05-18 15:08:30
+export PATH="$PATH:/home/poppino/.local/bin"
+
+source ~/vulkanSDK/default/setup-env.sh
+
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

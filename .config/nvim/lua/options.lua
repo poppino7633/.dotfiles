@@ -29,3 +29,4 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, { pattern = { "*.vert", "
 
 vim.opt.title = true
 vim.opt.titlestring = [[nvim %t – %{fnamemodify(getcwd(), ':t')}]]
+
