@@ -58,6 +58,7 @@ hl.config({
     sensitivity = 0,
     touchpad = {
       natural_scroll = true,
+
     },
     accel_profile = "flat",
   },
@@ -69,6 +70,10 @@ hl.config({
 
 })
 
+hl.device({
+  name = "ps/2-logitech-mouse",
+  left_handed = true,
+})
 
 hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } });
 hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36, 1 } } });
