@@ -39,6 +39,9 @@ local on_attach = function(client, bufnr)
   end, bufopts)
 end
 
+vim.lsp.config('*', {
+  on_attach = on_attach
+})
 
 
 vim.lsp.config('*', {

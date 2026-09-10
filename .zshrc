@@ -117,7 +117,6 @@ alias vim='nvim'
 [[ -f /home/poppino/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/poppino/.config/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
-
 # Created by `pipx` on 2026-05-18 15:08:30
 export PATH="$PATH:/home/poppino/.local/bin"
 
@@ -127,3 +126,4 @@ source ~/vulkanSDK/default/setup-env.sh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+export PATH="$HOME/.local/bin:$PATH"

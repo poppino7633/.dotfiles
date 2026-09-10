@@ -45,6 +45,7 @@ tooltip * {
 
 #cava {
   margin-right: 1rem;
+  font-family: "JetBrainsMono Nerd Font", monospace;
 }
 
 #cpu {
@@ -115,6 +116,16 @@ tooltip * {
 
 
 #tray {
+  color: @text;
+  margin-right: 1rem;
+}
+
+#bluetooth {
+  color: @text;
+  margin-right: 1rem;
+}
+
+#battery {
   color: @text;
   margin-right: 1rem;
 }

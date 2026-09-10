@@ -7,7 +7,7 @@
   "reload_style_on_change": true,
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
-  "modules-right": ["custom/updates", "cpu","memory", "group/music", "pulseaudio/slider", "pulseaudio", "custom/weather", "tray", "custom/notification"],
+  "modules-right": ["custom/updates", "group/system", "group/music", "pulseaudio", "custom/weather", "tray", "battery", "custom/notification"],
   "pulseaudio/slider" : {
     "expand": false
   },
@@ -38,16 +38,23 @@
     "escape": true
   },
   "cava": {
-      "framerate": 240,
+      "framerate": 120,
       "autosens": 1,
+<<<<<<< HEAD:.config/waybar/config.jsonc
       "sensitivity": 3,
       "bars": 20,
       "lower_cutoff_freq": 30,
+=======
+      "sensitivity": 1,
+      "bars": 20,
+      "bar_spacing": 0,
+      "lower_cutoff_freq": 20,
+>>>>>>> 464c55d (L):home/.config/waybar/config.jsonc
       "higher_cutoff_freq": 18000,
       "method": "pipewire",
       "source": "auto",
-      "stereo": false,
-      "reverse": false,
+      "stereo": true,
+      "reverse": true,
       "bar_delimiter": 0,
       "monstercat": false,
       "noise_reduction": 0.1,
@@ -108,7 +115,8 @@
       "class<REAPER>": " ",
       "class<org.kde.dolphin>": " ",
       "class<mixer>": " ",
-      "class<btop>": "󰄪 "
+      "class<btop>": "󰄪 ",
+      "class<discord>": " " 
     },
     "format-icons": {
       "1": "",
@@ -135,7 +143,7 @@
     "format": "{} {icon}",
     "return-type": "json",
     "format-icons": {
-        "has-updates": "󰇚",
+        "has-updates": "󰇚 ",
         "updated": "󰗠 "
     },
     "exec-if": "which waybar-module-pacman-updates",
@@ -144,9 +152,13 @@
   },
   "cpu": {
     "interval": 1,
+<<<<<<< HEAD:.config/waybar/config.jsonc
     "format": "  {usage}%",
     "max-length": 7,
     "min-length": 7,
+=======
+    "format": "  {usage}%",
+>>>>>>> 464c55d (L):home/.config/waybar/config.jsonc
     "on-click": "kitty --class btop btop"
   },
   "memory": {
@@ -159,8 +171,36 @@
       "format": "{:%H:%M}",
       "tooltip": true,
       "tooltip-format": "<big>{:%d %b %Y}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "battery": {
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "events": {
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+      "on-charging-100": "notify-send -u normal 'Battery Full!'"
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "min-length": 6,
+    "max-length": 25
+  },
+
+
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": " {num_connections}",
+    "format-connected-battery": " {device_battery_percentage}%",
+    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "blueman-manager",
   }
-
-
 }
 
