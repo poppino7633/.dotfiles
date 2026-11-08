@@ -1,14 +1,12 @@
-<<<<<<< HEAD:.config/dolphinrc
 MenuBar=Disabled
 
 [DetailsMode]
 PreviewSize=32
-=======
+
 [ExtractDialog]
 1536x960 screen: Height=960
 1536x960 screen: Width=1536
 DirHistory[$e]=$HOME/Downloads/
->>>>>>> 464c55d (L):home/.config/dolphinrc
 
 [General]
 Version=202
@@ -20,9 +18,3 @@ Places Icons Static Size=22
 
 [MainWindow]
 MenuBar=Disabled
-<<<<<<< HEAD:.config/dolphinrc
-=======
-
-[UiSettings]
-ColorScheme=CatppuccinMochaMauve
->>>>>>> 464c55d (L):home/.config/dolphinrc

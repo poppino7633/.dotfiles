@@ -64,8 +64,8 @@ hl.config({
   },
 
   xwayland = {
-    use_nearest_neighbor = true,
-    force_zero_scaling = true,
+    use_nearest_neighbor = false,
+    force_zero_scaling = false,
   },
 
 })

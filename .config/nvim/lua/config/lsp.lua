@@ -4,8 +4,13 @@ local lspconfig = vim.lsp.config
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '[d', function()
+  vim.diagnostic.jump({ count = -1, float = true })
+end, opts)
+
+vim.keymap.set('n', ']d', function()
+  vim.diagnostic.jump({ count = 1, float = true })
+end, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- Use an on_attach function to only map the following keys
@@ -35,14 +40,9 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', "<leader>f", function()
-    vim.lsp.buf.format({ async = true })
+    vim.lsp.buf.format({ async = false })
   end, bufopts)
 end
-
-vim.lsp.config('*', {
-  on_attach = on_attach
-})
-
 
 vim.lsp.config('*', {
   on_attach = on_attach
@@ -51,6 +51,21 @@ vim.lsp.config('*', {
 vim.lsp.config('clangd', {
   on_attach = on_attach
 })
+
+vim.lsp.config('texlab', {
+  on_attach = on_attach
+})
+
+vim.lsp.config('roslyn_ls', {
+  on_attach = on_attach,
+  settings = {
+    ["csharp|background_analysis"] = {
+      dotnet_analyzer_diagnostics_scope = "none",
+      dotnet_compiler_diagnostics_scope = "openFiles",
+    },
+  },
+})
+vim.lsp.enable('roslyn_ls')
 
 vim.lsp.config('cmake', {
   cmd = { vim.fn.stdpath('data') .. '/mason/bin/cmake-language-server' },

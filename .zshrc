@@ -110,7 +110,7 @@ alias ff="fastfetch --logo-type small"
 alias clearff="clear; ff"
 ff
 
-alias vim='nvim'
+# alias vim='nvim'
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall

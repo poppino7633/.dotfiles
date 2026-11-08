@@ -1,5 +1,5 @@
 hl.monitor({
-  output = "DP-1",
+  output = "auto",
   mode = "highres@highrr",
   position = "auto",
   bitdepth = 10,
