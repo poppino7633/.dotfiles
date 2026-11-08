@@ -1,6 +1,6 @@
 hl.monitor({
   output = "",
-  mode = "highrr",
+  mode = "highres@highrr",
   position = "auto",
   bitdepth = 10,
   vrr = 1,
